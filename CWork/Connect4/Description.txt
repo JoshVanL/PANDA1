@@ -1,0 +1,1 @@
+﻿I have created a simple text based connect four game. This is an extension onto the noughts and crosses game. The game is much similar in principle to noughts and crosses however uses a larger board, and a players move has to 'drop' to the lowest point in a column and must.
