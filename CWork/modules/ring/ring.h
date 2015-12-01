@@ -3,8 +3,16 @@
 
 typedef char *item;
 
-struct node;
+struct node {
+  char *name;
+  struct node *next;
+  struct node *previous;
+};
+
+
 typedef struct node node;
+
+
 
 
 // Create a new empty ring of items.
