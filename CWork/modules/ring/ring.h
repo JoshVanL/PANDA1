@@ -23,3 +23,9 @@ node *new_node(char *station, node *currentNode);
 node *delete_node(node *currentNode);
 
 node *travel(node *currentNode);
+
+node *rename_node(char *input, node *currentNode);
+
+char *inputFromUser();
+
+void list(node *currentNode);

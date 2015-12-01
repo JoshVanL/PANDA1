@@ -29,11 +29,14 @@ node *new_node(char *station, node *currentNode) {
 }
 
 node *delete_node(node *currentNode){
-  node *n = currentNode->next;
-  currentNode->previous->next = currentNode->next;
-  currentNode->next->previous = currentNode->previous;
-  free(currentNode);
-  return n;
+  if(currentNode->name != NULL){
+    node *n = currentNode->next;
+    currentNode->previous->next = currentNode->next;
+    currentNode->next->previous = currentNode->previous;
+    free(currentNode);
+    return n;
+  }
+  return currentNode;
 }
 
 
@@ -41,14 +44,32 @@ node *travel(node *currentNode){
   return currentNode->next;
 }
 
+void list(node *currentNode){
+  struct node *pointer;
+  pointer = currentNode->next;
+  printf("\n%s", currentNode->name);
+  currentNode = travel(currentNode);
+  while(pointer != currentNode->next){
+    printf("\n%s", currentNode->name);
+    currentNode = travel(currentNode);
+  }
+  printf("\n");
+}
+
+node *rename_node(char *input, node *currentNode){
+  currentNode->name = input;
+  return currentNode;
+}
+
 
 char *inputFromUser() {
   int bufferSize = 100;
   char *buffer = malloc(sizeof(char)*bufferSize);
   char *input = buffer;
-  fgets(input, bufferSize, stdin);
-  size_t ln = strlen(input) - 1;
-  if (input[ln] == '\n') input[ln] = '\0';
-
-  return input;
+  if (fgets(input, bufferSize, stdin) != NULL){
+    size_t ln = strlen(input) - 1;
+    if (input[ln] == '\n') input[ln] = '\0';
+    return input;
+  }
+  return "";
 }
