@@ -6,7 +6,7 @@
 int main() {
   char *input;
   node *currentNode = new_ring();
-  
+
   printf("t -- travel to next station\n");
   printf("a -- add new station\n");
   printf("d -- delete current station\n");
