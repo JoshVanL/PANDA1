@@ -1,6 +1,3 @@
-//Program to use the ring stucture I have designed.
-//Treats the ring as a list which has several commands to manipulate the ring.
-
 #include "ring.h"
 #include <stdio.h>
 #include <stdlib.h>
